@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import InputField from "./Components/InputField";
+import Item from "./Components/Item";
 import Resume from "./Components/Resume";
 
 
@@ -10,7 +11,6 @@ function App() {
   React.useEffect(()=>{
     const local = window.localStorage.getItem('tasks')
     if(local){
-      console.log(local);
       let localJSON = [JSON.parse(local)]
       setTasks(...localJSON)
     }
@@ -32,10 +32,7 @@ function App() {
 
       <ul>
         {tasks && tasks.map((task)=>{
-          return <li>
-            <span>nome: {task.desc}</span>
-            <span> | valor: <span style={task.option === 'entrada'? {color: 'green', fontWeight: 'bold'}: {color: 'red', fontWeight: 'bold'}}>R${task.value}</span></span>
-            </li>
+          return <Item key={task.id} task={task} />
         })}
       </ul>
     </>

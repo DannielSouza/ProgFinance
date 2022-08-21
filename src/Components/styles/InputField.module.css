@@ -3,11 +3,11 @@
   height: 200px;
   background-color: #76448A;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .container{
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,11 +19,9 @@
   width: 60%;
   height: 50%;
   position: relative;
-
 }
 
-
-.input,.select, .button{
+.input,.select, .button, .date{
   max-width: 10rem;  
   height: 2rem;
   padding: 0 .5rem;
@@ -31,6 +29,10 @@
   outline: none;
   margin: 0 .5rem;
   border: 1px solid white;
+}
+
+#date{
+  min-width: 34px;
 }
 
 .select{
@@ -77,19 +79,23 @@
 
 @media (max-width: 600px){
   .container{
+    top: 1rem;
     width: 95%;
     height: 40%;
   }
   .input,.select{
-    max-width: 6rem;
+    max-width: 5rem;
   }
   .button{
     max-width: 4rem;
+  }
+  #date{
+    width: 34px;
   }
 }
 
 @media (max-width: 450px){
   .input,.select{
-    max-width: 5rem;
+    max-width: 4rem;
   }
 }

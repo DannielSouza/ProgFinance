@@ -5,11 +5,28 @@ const InputField = ({tasks, setTasks}) => {
   const [desc, setDesc] = React.useState('')
   const [value, setValue] = React.useState('')
   const [select, setSelect] = React.useState('')
+  const [date, setDate] = React.useState('')
+  let formatedDate
 
   function gerarID(){
     let id = Math.floor(Date.now() * Math.random()).toString(36)
     return id
   }
+
+  
+
+  React.useEffect(()=>{
+    let data = new Date(date)
+
+    const dia = Number(data.getDate())+1
+
+    const mes = Number(data.getMonth())+1
+    let newMes
+    if(mes < 10){newMes = "0" + mes}
+
+    const ano = Number(data.getFullYear())
+    formatedDate =  dia + "/" + newMes + "/" + ano
+  },[date])
 
   function handleSubmit(event){
     event.preventDefault()
@@ -18,13 +35,16 @@ const InputField = ({tasks, setTasks}) => {
       "id":`${gerarID()}`,
       "desc": `${desc}`,
       "value": `${value}`,
-      "option": `${select}`
+      "option": `${select}`,
+      "date": `${formatedDate}`
     }
     setTasks(tasks? [...tasks, task] : [task])
     setDesc('')
     setValue('')
     setSelect('')
+    setDate('')
   }
+
 
   return (
     <header className={style.header}>
@@ -59,6 +79,15 @@ const InputField = ({tasks, setTasks}) => {
         <option value="entrada">Entrada</option>
         <option value="saida">Despesa</option>
       </select>
+
+      <input
+      className={style.date}
+      id={style.date}
+      type='date'
+      value={date} 
+      onChange={({target})=> setDate(target.value)}
+      required
+      />
 
       <button className={style.button}>Enviar</button>
     </form>

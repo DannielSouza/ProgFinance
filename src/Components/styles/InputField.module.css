@@ -1,0 +1,95 @@
+.header{
+  width: 100vw;
+  height: 200px;
+  background-color: #76448A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #633974;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+  color: white;
+  border: 1px solid white;
+  border-radius: 5rem;
+  width: 60%;
+  height: 50%;
+  position: relative;
+
+}
+
+
+.input,.select, .button{
+  max-width: 10rem;  
+  height: 2rem;
+  padding: 0 .5rem;
+  border-radius: 5rem;
+  outline: none;
+  margin: 0 .5rem;
+  border: 1px solid white;
+}
+
+.select{
+  border-radius: 5rem  0 0 5rem;
+}
+
+.button{
+  width: 7rem;
+  background: white;
+  transition: .3s;
+  text-transform: uppercase;
+}
+
+.button:hover{
+  background: #76448A;
+  color: white;
+  font-weight: bold;
+}
+
+.resume{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+@media (max-width: 1100px){
+  .container{
+    width: 80%;
+  }
+  
+}
+
+@media (max-width: 850px){
+  .container{
+    width: 90%;
+  }
+  .input,.select{
+    max-width: 8rem;
+  }
+  .button{
+    max-width: 5rem;
+  }
+}
+
+@media (max-width: 600px){
+  .container{
+    width: 95%;
+    height: 40%;
+  }
+  .input,.select{
+    max-width: 6rem;
+  }
+  .button{
+    max-width: 4rem;
+  }
+}
+
+@media (max-width: 450px){
+  .input,.select{
+    max-width: 5rem;
+  }
+}

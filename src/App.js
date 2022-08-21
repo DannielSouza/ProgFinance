@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import InputField from "./Components/InputField";
+import Resume from "./Components/Resume";
+
 
 function App() {
+  const [tasks, setTasks] = React.useState()
+
+  React.useEffect(()=>{
+    const local = window.localStorage.getItem('tasks')
+    if(local){
+      console.log(local);
+      let localJSON = [JSON.parse(local)]
+      setTasks(...localJSON)
+    }
+  },[])
+
+
+  React.useEffect(()=>{
+    if(tasks){
+      let tasktString = JSON.stringify(tasks)
+      window.localStorage.setItem('tasks', tasktString)
+    }
+  },[tasks])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <InputField tasks={tasks} setTasks={setTasks}/>
+      <Resume tasks={tasks} />
+
+      <ul>
+        {tasks && tasks.map((task)=>{
+          return <li>
+            <span>nome: {task.desc}</span>
+            <span> | valor: <span style={task.option === 'entrada'? {color: 'green', fontWeight: 'bold'}: {color: 'red', fontWeight: 'bold'}}>R${task.value}</span></span>
+            </li>
+        })}
+      </ul>
+    </>
   );
 }
 

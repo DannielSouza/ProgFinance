@@ -1,12 +1,8 @@
 .container{
-  position: absolute;
   display: flex;
-  justify-content: space-around;
-  gap: 2rem;
-  top: 124px;
-  left: 50%;
-  transform: translateX(-50%);
-  
+  align-items: flex-end;
+  gap: 2rem;  
+  margin-top: 2rem;
 }
 
 .container span{
@@ -16,50 +12,56 @@
 .item{
   display: flex;
   flex-direction: column;
-  text-align: center;
-  background: white;
-  border: 1px solid white;
-  color: #273746;
-  border-radius: 0 0 2rem 2rem ;
-  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-  padding: .5rem 2rem;
+  border-bottom: 1px solid white;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.item span{
+  margin-top: -8px;
+}
+
+#total{
+  align-items: flex-end;
+  color: white;
+  font-size: 3.5rem;
+  border-bottom: 1px solid white;
+  margin: 0%;
+  margin-right: 2rem;
 }
 
 @media (max-width: 600px){
   .container{
-    top: 112px;
-    font-size: .9rem;
-    text-align: center;
-    padding: .5rem 1rem;
+    gap: 1rem; 
   }
-  .item > span{
-    font-size: .7rem;
+  #total{
+    font-size: 2.8rem;
   }
+ .item{
+  font-size: .7rem;
+ }
 }
 
-@media (max-width: 550px){
+@media (max-width: 500px){
+  #total{
+    font-size: 2.5rem;
+    margin-right: 1rem;
+  }
+ .item{
+  font-size: .7rem;
+ }
+}
+
+@media (max-width: 420px){
   .container{
-    gap: 1rem;
+    gap: .5rem; 
   }
-  .item{
-    padding: .5rem 1.5rem;
+  #total{
+    font-size: 2.3rem;
+    margin-right: 1rem;
   }
-}
-
-@media (max-width: 450px){
-  .item{
-    padding: .3rem 1rem;
-  }
-}
-
-@media (max-width: 400px){
-  .container{
-    gap: .5rem;
-  }
-  .item{
-    font-size: .8rem;
-  }
-  .item > span{
-    font-size: .65rem;
-  }
+ .item{
+  font-size: .7rem;
+ }
 }

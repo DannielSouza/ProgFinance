@@ -1,7 +1,8 @@
 import React from 'react'
 import style from './styles/InputField.module.css'
+import close from '../assets/close.png'
 
-const InputField = ({tasks, setTasks}) => {
+const InputField = ({tasks, setTasks, setIsModalOpen}) => {
   const [desc, setDesc] = React.useState('')
   const [value, setValue] = React.useState('')
   const [select, setSelect] = React.useState('')
@@ -43,58 +44,58 @@ const InputField = ({tasks, setTasks}) => {
     setValue('')
     setSelect('')
     setDate('')
+    setIsModalOpen(false)
   }
 
 
   return (
-    <header className={style.header}>
-    <form className={style.container} onSubmit={handleSubmit}>
+    <section className={style.mainContainer}>
+      <form className={style.container} onSubmit={handleSubmit}>
 
-      <input 
-      className={style.input}
-      id='desc'
-      type='text' 
-      placeholder='Ex:Salario'
-      required
-      value={desc} 
-      onChange={({target})=> setDesc(target.value)} />
-      
-      <input 
-      className={style.input}
-      id='value'
-      type='number' 
-      placeholder='Ex:R$1200.00'
-      required
-      value={value} 
-      onChange={({target})=> setValue(target.value)}/>
+      <img onClick={()=>setIsModalOpen(false)} id={style.closeModal} src={close}  alt='fechar modal'/>
 
-      <select 
-      className={style.select}
-      id='type'
-      value={select} 
-      onChange={({target})=> setSelect(target.value)}
-      required
-      >
-        <option disabled value="">Selecione</option>
-        <option value="entrada">Entrada</option>
-        <option value="saida">Despesa</option>
-      </select>
+        <input 
+        className={style.input}
+        id='desc'
+        type='text' 
+        placeholder='Ex:Salario'
+        required
+        value={desc} 
+        onChange={({target})=> setDesc(target.value)} />
+        
+        <input 
+        className={style.input}
+        id='value'
+        type='number' 
+        placeholder='Ex:R$1200.00'
+        required
+        value={value} 
+        onChange={({target})=> setValue(target.value)}/>
 
-      <input
-      className={style.date}
-      id={style.date}
-      type='date'
-      value={date} 
-      onChange={({target})=> setDate(target.value)}
-      required
-      />
+        <select 
+        className={style.select}
+        id='type'
+        value={select} 
+        onChange={({target})=> setSelect(target.value)}
+        required
+        >
+          <option disabled value="">Selecione</option>
+          <option value="entrada">Entrada</option>
+          <option value="saida">Despesa</option>
+        </select>
 
-      <button className={style.button}>Enviar</button>
-    </form>
+        <input
+        className={style.date}
+        id={style.date}
+        type='date'
+        value={date} 
+        onChange={({target})=> setDate(target.value)}
+        required
+        />
 
-
-    
-    </header>
+        <button className={style.button}>Enviar</button>
+      </form>    
+    </section>
   )
 }
 

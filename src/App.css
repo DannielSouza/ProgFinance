@@ -1,9 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,100&display=swap');
 
 *{
 margin: 0;
 padding: 0;
 box-sizing: border-box;
-font-family: 'IBM Plex Mono', monospace;
+font-family: 'Poppins', sans-serif;
 list-style: none;
+}
+
+.buttonAdd{
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: #633974;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.buttonAdd img{
+  width: 35px;
+  height: 35px;
+}
+
+@media (max-width: 600px) {
+  .buttonAdd{
+    width: 50px;
+    height: 50px;
+  }
+  .buttonAdd img{
+    width: 30px;
+    height: 30px;
+  }
 }

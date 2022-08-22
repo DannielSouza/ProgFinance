@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.css";
+import Header from "./Components/Header";
 import InputField from "./Components/InputField";
 import Item from "./Components/Item";
-import Resume from "./Components/Resume";
+import add from './assets/add.png'
 
 
 function App() {
   const [tasks, setTasks] = React.useState()
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
+  const [name, setName] = React.useState(null)
 
   React.useEffect(()=>{
     const local = window.localStorage.getItem('tasks')
@@ -24,17 +27,30 @@ function App() {
     }
   },[tasks])
 
+  React.useEffect(()=>{
+    const local = window.localStorage.getItem('name')
+    if(local) setName(local)
+    if(!local){
+      let nome = prompt("Como gostaria de ser chamado?")
+      setName(nome)
+      window.localStorage.setItem('name', nome)
+    }
+  },[])
+
 
   return (
     <>
-      <InputField tasks={tasks} setTasks={setTasks}/>
-      <Resume tasks={tasks} />
+      <Header tasks={tasks} setTasks={setTasks} name={name}/>
+      <button onClick={()=> setIsModalOpen(true) } className='buttonAdd'><img src={add} alt='adcionar item'/></button>
 
       <ul>
         {tasks && tasks.map((task)=>{
           return <Item key={task.id} task={task} />
         })}
       </ul>
+
+      {isModalOpen && <InputField tasks={tasks} setTasks={setTasks} setIsModalOpen={setIsModalOpen}/>}
+
     </>
   );
 }

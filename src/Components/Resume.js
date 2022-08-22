@@ -31,16 +31,16 @@ const Resume = ({tasks}) => {
 
   if(tasks) return (
     <section className={style.container}>
-      <div className={style.item}>Entradas <span style={{color: '#239B56'}} >R${entradas.toFixed(2)}</span></div>
+      <div id={style.total} className={style.item}><span style={total >= 0 ?{color:'#2ECC71'} : {color: '#E74C3C'}} >R${total.toFixed(2)}</span></div>
+      <div className={style.item}>Entradas <span style={{color: '#2ECC71'}} >R${entradas.toFixed(2)}</span></div>
       <div className={style.item}>Saidas <span style={{color: '#E74C3C'}} >R$-{saidas.toFixed(2)}</span></div>
-      <div className={style.item}>Total<span style={total >= 0 ?{color:'#239B56'} : {color: '#E74C3C'}} >R${total.toFixed(2)}</span></div>
     </section>
   ) 
   return (
     <section className={style.container}>
-      <div className={style.item}>Entradas <span style={{color: '#239B56'}} >R$---</span></div>
+      <div id={style.total} className={style.item}><span style={total >= 0 ?{color:'#2ECC71'} : {color: '#E74C3C'}} >R$---</span></div>
+      <div className={style.item}>Entradas <span style={{color: '#2ECC71'}} >R$---</span></div>
       <div className={style.item}>Saidas <span style={{color: '#E74C3C'}} >R$---</span></div>
-      <div className={style.item}>Total<span style={total >= 0 ?{color:'#239B56'} : {color: '#E74C3C'}} >R$---</span></div>
     </section>
   ) 
 }

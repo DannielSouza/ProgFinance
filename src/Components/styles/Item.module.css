@@ -7,6 +7,18 @@
   align-items: center;
   padding: .2rem 1rem;
   margin-top: 1rem;
+  animation: slideLeft .4s forwards;
+}
+
+@keyframes slideLeft{
+  from{
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to{
+    transform: initial;
+    opacity: initial;
+  }
 }
 
 .mainInfo{
@@ -17,6 +29,19 @@
 #date{
   color: gray;
   font-weight: 400;
+}
+
+.value{
+  display: flex;
+  align-items: center;
+
+}
+
+.value img{
+  max-width:35px;
+  cursor: pointer;
+  margin-left: .5rem;
+  padding: .41rem;
 }
 
 @media (max-width:500px){

@@ -1,0 +1,36 @@
+.header{
+  width: 100vw;
+  height: 160px;
+  background: #633974;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+
+.container{
+  width: 600px;
+
+}
+
+.mainInfo{
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 0%;
+  justify-content: center;
+}
+
+@media (max-width: 600px){
+  .header h1{
+    font-size: 1.5em;
+    padding: .35rem 0;
+  }
+  .container{
+    margin-left: 1rem;
+  }
+  .mainInfo{
+    justify-content: initial;
+  }
+}

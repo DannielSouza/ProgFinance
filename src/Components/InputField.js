@@ -10,6 +10,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
   const [dateMonth, setDateMonth] = React.useState('')
   const [dateYear, setDateYear] = React.useState(2022)
   let formatedDate
+  let formatedDateUSA
 
   function gerarID(){
     let id = Math.floor(Date.now() * Math.random()).toString(36)
@@ -34,13 +35,17 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
     }
 
     formatedDate = newDay + "/" + newMonth + "/" + dateYear
+    formatedDateUSA = newMonth + "/" + newDay + "/" + dateYear
+    let timeStamp = new Date(formatedDateUSA).getTime()
+
     
     const task = {
       "id":`${gerarID()}`,
       "desc": `${desc}`,
       "value": `${value}`,
       "option": `${select}`,
-      "date": `${formatedDate}`
+      "date": `${formatedDate}`,
+      "timeStamp": `${timeStamp}`
     }
     setTasks(tasks? [...tasks, task] : [task])
     setDesc('')

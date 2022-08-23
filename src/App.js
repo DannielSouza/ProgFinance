@@ -44,7 +44,9 @@ function App() {
       <button onClick={()=> setIsModalOpen(true) } className='buttonAdd'><img src={add} alt='adcionar item'/></button>
 
       <ul>
-        {tasks && tasks.map((task)=>{
+        {tasks && tasks.sort((a,b)=>{
+          return  Number(b.timeStamp) - Number(a.timeStamp)
+        }).map((task)=>{
           return <Item key={task.id} id={task.id} task={task} tasks={tasks} setTasks={setTasks}/>
         })}
       </ul>

@@ -38,9 +38,9 @@ const Resume = ({tasks}) => {
   ) 
   return (
     <section className={style.container}>
-      <div id={style.total} className={style.item}><span style={total >= 0 ?{color:'#2ECC71'} : {color: '#E74C3C'}} >R$---</span></div>
-      <div className={style.item}>Entradas <span style={{color: '#2ECC71'}} >R$---</span></div>
-      <div className={style.item}>Saidas <span style={{color: '#E74C3C'}} >R$---</span></div>
+      <div id={style.total} className={style.item}><span style={total >= 0 ?{color:'#2ECC71'} : {color: '#E74C3C'}} >R$0.00</span></div>
+      <div className={style.item}>Entradas <span style={{color: '#2ECC71'}} >R$0.00</span></div>
+      <div className={style.item}>Saidas <span style={{color: '#E74C3C'}} >R$-0.00</span></div>
     </section>
   ) 
 }

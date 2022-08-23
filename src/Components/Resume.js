@@ -28,6 +28,12 @@ const Resume = ({tasks}) => {
     })
   }
 
+  if(tasks){
+    if(total.length > 8){
+
+    }
+  }
+
 
   if(tasks) return (
     <section className={style.container}>

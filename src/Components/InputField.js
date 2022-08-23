@@ -89,6 +89,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
         id={style.date}
         type='date'
         value={date} 
+        placeholder='Selecione a data'
         onChange={({target})=> setDate(target.value)}
         required
         />

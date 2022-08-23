@@ -6,7 +6,9 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
   const [desc, setDesc] = React.useState('')
   const [value, setValue] = React.useState('')
   const [select, setSelect] = React.useState('')
-  const [date, setDate] = React.useState('')
+  const [dateDay, setDateDay] = React.useState('')
+  const [dateMonth, setDateMonth] = React.useState('')
+  const [dateYear, setDateYear] = React.useState(2022)
   let formatedDate
 
   function gerarID(){
@@ -14,23 +16,24 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
     return id
   }
 
-  
-
-  React.useEffect(()=>{
-    let data = new Date(date)
-
-    const dia = Number(data.getDate())+1
-
-    const mes = Number(data.getMonth())+1
-    let newMes
-    if(mes < 10){newMes = "0" + mes}
-
-    const ano = Number(data.getFullYear())
-    formatedDate =  dia + "/" + newMes + "/" + ano
-  },[date])
-
   function handleSubmit(event){
     event.preventDefault()
+    let newDay
+    let newMonth
+
+    if(dateDay < 10 && !(dateDay.slice(0)).startsWith('0') ){ 
+      newDay = '0'+ dateDay
+    }else{
+      newDay = dateDay
+    }
+    
+    if(dateMonth < 10 && !(dateMonth.slice(0)).startsWith('0') ){ 
+      newMonth = '0'+ dateMonth
+    }else{
+      newMonth = dateMonth
+    }
+
+    formatedDate = newDay + "/" + newMonth + "/" + dateYear
     
     const task = {
       "id":`${gerarID()}`,
@@ -43,7 +46,9 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
     setDesc('')
     setValue('')
     setSelect('')
-    setDate('')
+    setDateDay('')
+    setDateMonth('')
+    setDateYear(2022)
     setIsModalOpen(false)
   }
 
@@ -69,6 +74,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
         type='number' 
         placeholder='Ex:R$1200.00'
         required
+        max="99000"
         value={value} 
         onChange={({target})=> setValue(target.value)}/>
 
@@ -84,15 +90,47 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
           <option value="saida">Despesa</option>
         </select>
 
+
+        <div className={style.dateContainer}>
+
         <input
         className={style.date}
         id={style.date}
-        type='date'
-        value={date} 
-        placeholder='Selecione a data'
-        onChange={({target})=> setDate(target.value)}
+        type='number'
+        value={dateDay} 
+        placeholder='Dia'
+        onChange={({target})=> setDateDay(target.value)}
         required
+        min='1'
+        max='31'
         />
+
+        <input
+        className={style.date}
+        id={style.date}
+        type='number'
+        value={dateMonth} 
+        placeholder='Mês'
+        onChange={({target})=> setDateMonth(target.value)}
+        required
+        min='1'
+        max='12'
+        />
+
+        <input
+        className={style.date}
+        id={style.date}
+        type='number'
+        value={dateYear} 
+        placeholder='Dia'
+        onChange={({target})=> setDateYear(target.value)}
+        required
+        min='2022'
+        max='2022'
+        disabled
+        />
+
+        </div>
 
         <button className={style.button}>Enviar</button>
       </form>    

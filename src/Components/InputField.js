@@ -65,6 +65,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
       <img onClick={()=>setIsModalOpen(false)} id={style.closeModal} src={close}  alt='fechar modal'/>
 
         <input 
+        autoComplete='off'
         className={style.input}
         id='desc'
         type='text' 

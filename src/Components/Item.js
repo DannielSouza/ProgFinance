@@ -8,7 +8,7 @@ const Item = ({task , tasks, setTasks}) => {
   function deleteItem({target}){
     let thisItem
 
-    let question = confirm('Deseja excluir o item?')
+    let question = window.confirm("Deseja excluir o item?")
     if(question){
       tasks.forEach((task)=>{
         if(task.id === target.id){

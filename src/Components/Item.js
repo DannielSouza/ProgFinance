@@ -2,8 +2,33 @@ import React from 'react'
 import style from './styles/Item.module.css'
 import trash from '../assets/delete.png'
 
-const Item = ({task}) => {
+const Item = ({task , tasks, setTasks}) => {
   const {id, desc, option, value, date} = task
+
+  function deleteItem({target}){
+    let thisItem
+
+    let question = confirm('Deseja excluir o item?')
+    if(question){
+      tasks.forEach((task)=>{
+        if(task.id === target.id){
+          thisItem =  tasks.indexOf(task)
+        }
+      })
+
+      tasks.splice(thisItem, 1)
+      if(tasks.length === 0){
+        window.localStorage.setItem('tasks', null)
+        document.location.reload()
+      }
+      setTasks(tasks)
+      window.localStorage.setItem('tasks', JSON.stringify(tasks))
+      document.location.reload()
+    }
+    else{
+      return
+    }
+  }
 
   return (
     <li className={style.container}>
@@ -12,11 +37,9 @@ const Item = ({task}) => {
         <p>{desc}</p>
       </div>
 
-    {console.log(id)}
-
       <div className={style.value}>
         <span>{option === 'entrada'? <span style={{color: '#239B56', fontWeight: 'bold'}}>R${value}</span>: <span style={{color: '#E74C3C', fontWeight: 'bold'}}>R$-{value}</span>}</span>
-        <img src={trash} alt="delelete item"/>
+        <img id={id} onClick={deleteItem} src={trash} alt="delelete item"/>
       </div>
 
     </li>

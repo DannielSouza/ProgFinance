@@ -45,7 +45,7 @@ function App() {
 
       <ul>
         {tasks && tasks.map((task)=>{
-          return <Item key={task.id} task={task} />
+          return <Item key={task.id} id={task.id} task={task} tasks={tasks} setTasks={setTasks}/>
         })}
       </ul>
 

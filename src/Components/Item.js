@@ -18,7 +18,7 @@ const Item = ({task , tasks, setTasks}) => {
 
       tasks.splice(thisItem, 1)
       if(tasks.length === 0){
-        window.localStorage.deleteItem('tasks')
+        window.localStorage.setItem('tasks', null)
         document.location.reload()
       }
       setTasks(tasks)

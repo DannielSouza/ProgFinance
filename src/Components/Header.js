@@ -9,9 +9,8 @@ const Header = ({tasks, setTasks, name}) => {
       <div className={style.container}>
         {name? <h1>Olá, {name}!</h1> : <h1>Olá!</h1>}
 
-        <div className={style.mainInfo}>
-          <Resume tasks={tasks} setTasks={setTasks}/>
-        </div>
+        
+        <Resume tasks={tasks} setTasks={setTasks}/>
       </div>
     </header>
   )

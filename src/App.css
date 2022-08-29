@@ -8,10 +8,14 @@ font-family: 'Poppins', sans-serif;
 list-style: none;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 .buttonAdd{
   position: fixed;
   right: 1rem;
-  bottom: 1rem;
+  bottom: 1.5rem;
   background: #633974;
   border: none;
   cursor: pointer;
@@ -28,7 +32,27 @@ list-style: none;
   height: 35px;
 }
 
-@media (max-width: 600px) {
+.buttonGraph{
+  position: fixed;
+  right: 1.5rem;
+  bottom: 6rem;
+  background: #633974;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.buttonGraph img{
+  width: 25px;
+  height: 25px;
+}
+
+/* @media (max-width: 600px) {
   .buttonAdd{
     width: 50px;
     height: 50px;
@@ -37,4 +61,5 @@ list-style: none;
     width: 30px;
     height: 30px;
   }
-}
+  
+} */

@@ -6,6 +6,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
   const [desc, setDesc] = React.useState('')
   const [value, setValue] = React.useState('')
   const [select, setSelect] = React.useState('')
+  const [outType, setOutType] = React.useState('')
   const [dateDay, setDateDay] = React.useState('')
   const [dateMonth, setDateMonth] = React.useState('')
   const [dateYear, setDateYear] = React.useState(2022)
@@ -45,12 +46,14 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
       "value": `${value}`,
       "option": `${select}`,
       "date": `${formatedDate}`,
-      "timeStamp": `${timeStamp}`
+      "timeStamp": `${timeStamp}`,
+      "outType:": `${outType}`
     }
     setTasks(tasks? [...tasks, task] : [task])
     setDesc('')
     setValue('')
     setSelect('')
+    setOutType('')
     setDateDay('')
     setDateMonth('')
     setDateYear(2022)
@@ -95,6 +98,25 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
           <option value="entrada">Entrada</option>
           <option value="saida">Despesa</option>
         </select>
+
+        {select === 'saida' && 
+          <select 
+          className={style.selectOut}
+          id='outType'
+          value={outType} 
+          onChange={({target})=> setOutType(target.value)}
+          required
+          >
+            <option disabled value="">Selecione</option>
+            <option value="despesasMensais">Despesas mensais</option>
+            <option value="estudos">Estudos</option>
+            <option value="saude">Saude</option>
+            <option value="transporte">Transporte</option>
+            <option value="entretenimento">Entretenimento</option>
+            <option value="alimentacao">Alimentação</option>
+            <option value="outros">Outras despesas</option>
+          </select>
+        }
 
 
         <div className={style.dateContainer}>

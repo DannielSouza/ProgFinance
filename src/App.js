@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import Header from "./Components/Header";
-import InputField from "./Components/InputField";
-import Item from "./Components/Item";
-import add from './assets/add.png'
+import Details from "./Components/Details";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Home from "./Components/Home";
 
 
 function App() {
@@ -37,22 +37,18 @@ function App() {
     }
   },[])
 
-
   return (
     <>
-      <Header tasks={tasks} setTasks={setTasks} name={name}/>
-      <button onClick={()=> setIsModalOpen(true) } className='buttonAdd'><img src={add} alt='adcionar item'/></button>
+      <BrowserRouter>
+        <Header tasks={tasks} setTasks={setTasks} name={name}/>
+        <Routes>
+          <Route path="/" element={<Home tasks={tasks} setTasks={setTasks} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>} />
+          <Route path="/detalhes" element={<Details tasks={tasks}/>} />
 
-      <ul>
-        {tasks && tasks.sort((a,b)=>{
-          return  Number(b.timeStamp) - Number(a.timeStamp)
-        }).map((task)=>{
-          return <Item key={task.id} id={task.id} task={task} tasks={tasks} setTasks={setTasks}/>
-        })}
-      </ul>
 
-      {isModalOpen && <InputField tasks={tasks} setTasks={setTasks} setIsModalOpen={setIsModalOpen}/>}
-
+        </Routes>
+        
+      </BrowserRouter>
     </>
   );
 }

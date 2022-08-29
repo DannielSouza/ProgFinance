@@ -147,7 +147,7 @@
   .date::after{
     position: absolute;
     content: '';
-    right: .7rem;
+    right: 1rem;
     width: 17px;
     height: 17px;
     background: url('../../assets/calendar.png');

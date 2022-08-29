@@ -148,7 +148,12 @@
   }
   .date::after{
     position: absolute;
-    content: 'Ex:07/05/2022';
+    content: '';
+    right: .5rem;
+    width: 17px;
+    height: 17px;
+    background: url('../../assets/calendar.png');
+    background-size: cover;
     color: rgba(0, 0, 0, .8);
   }
 }

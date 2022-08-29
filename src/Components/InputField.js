@@ -113,7 +113,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
         id={style.date}
         type='date'
         value={date} 
-        onChange={({target})=>{target.style.zIndex = 99 ;setDate(target.value)}}
+        onChange={({target})=>setDate(target.value)}
         required
         />
 

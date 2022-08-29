@@ -7,11 +7,11 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
   const [value, setValue] = React.useState('')
   const [select, setSelect] = React.useState('')
   const [outType, setOutType] = React.useState('')
-  const [dateDay, setDateDay] = React.useState('')
-  const [dateMonth, setDateMonth] = React.useState('')
-  const [dateYear, setDateYear] = React.useState(2022)
+  const [date, setDate] = React.useState('')
   let formatedDate
   let formatedDateUSA
+
+  
 
   function gerarID(){
     let id = Math.floor(Date.now() * Math.random()).toString(36)
@@ -20,23 +20,13 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
 
   function handleSubmit(event){
     event.preventDefault()
-    let newDay
-    let newMonth
+    const day = date.substr(8,2)
+    const month = date.substr(5,2)
+    const year = date.substr(0,4)
 
-    if(dateDay < 10 && !(dateDay.slice(0)).startsWith('0') ){ 
-      newDay = '0'+ dateDay
-    }else{
-      newDay = dateDay
-    }
-    
-    if(dateMonth < 10 && !(dateMonth.slice(0)).startsWith('0') ){ 
-      newMonth = '0'+ dateMonth
-    }else{
-      newMonth = dateMonth
-    }
 
-    formatedDate = newDay + "/" + newMonth + "/" + dateYear
-    formatedDateUSA = newMonth + "/" + newDay + "/" + dateYear
+    formatedDate = day + "/" + month + "/" + year
+    formatedDateUSA = month + "/" + day + "/" + year
     let timeStamp = new Date(formatedDateUSA).getTime()
 
     
@@ -54,9 +44,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
     setValue('')
     setSelect('')
     setOutType('')
-    setDateDay('')
-    setDateMonth('')
-    setDateYear(2022)
+    setDate('')
     setIsModalOpen(false)
   }
 
@@ -123,38 +111,10 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
         <input
         className={style.date}
         id={style.date}
-        type='number'
-        value={dateDay} 
-        placeholder='Dia'
-        onChange={({target})=> setDateDay(target.value)}
+        type='date'
+        value={date} 
+        onChange={({target})=> setDate(target.value)}
         required
-        min='1'
-        max='31'
-        />
-
-        <input
-        className={style.date}
-        id={style.date}
-        type='number'
-        value={dateMonth} 
-        placeholder='Mês'
-        onChange={({target})=> setDateMonth(target.value)}
-        required
-        min='1'
-        max='12'
-        />
-
-        <input
-        className={style.date}
-        id={style.date}
-        type='number'
-        value={dateYear} 
-        placeholder='Dia'
-        onChange={({target})=> setDateYear(target.value)}
-        required
-        min='2022'
-        max='2022'
-        disabled
         />
 
         </div>

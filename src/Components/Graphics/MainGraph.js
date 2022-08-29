@@ -15,17 +15,6 @@ const MainGraph = ({tasks}) => {
     }
   });
   }
-  
-    let options:{
-      labels:['teste']
-    }
-    let series:[
-      {
-        name: 'entradas',
-        data: entradas
-      }
-    ]
-
 
   return (
     <Chart

@@ -1,5 +1,5 @@
 .container{
-  animation: slideRight .4s forwards;
+  animation: slideRight .6s forwards;
   overflow-x: hidden;
 }
 
@@ -12,6 +12,17 @@
     transform: initial;
     opacity: initial;
   }
+}
+
+.select{
+  display: grid;
+  font-size:1.5em;
+  color: #633974;
+  border:  1px solid;
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align:center;
+  margin-top:.5em;
 }
 
 .container h1{
@@ -58,7 +69,7 @@
 }
 
 .buttonHome{
-  position: fixed;
+  position: fixed !important;
   right: 1.5rem;
   bottom: 1.5rem;
   background: #633974;
@@ -70,6 +81,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  z-index: 99;
 }
 
 .buttonHome img{

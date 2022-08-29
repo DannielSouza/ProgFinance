@@ -47,7 +47,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
       "option": `${select}`,
       "date": `${formatedDate}`,
       "timeStamp": `${timeStamp}`,
-      "outType:": `${outType}`
+      "outType": `${outType}`
     }
     setTasks(tasks? [...tasks, task] : [task])
     setDesc('')
@@ -111,7 +111,6 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
             <option value="despesasMensais">Despesas mensais</option>
             <option value="estudos">Estudos</option>
             <option value="saude">Saude</option>
-            <option value="transporte">Transporte</option>
             <option value="entretenimento">Entretenimento</option>
             <option value="alimentacao">Alimentação</option>
             <option value="outros">Outras despesas</option>

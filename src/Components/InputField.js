@@ -111,9 +111,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
         <input
         className={style.date}
         id={style.date}
-        type='text'
-        onFocus={({target})=>target.type = 'date'}
-        placeholder='Ex:07/05/2022'
+        type='date'
         value={date} 
         onChange={({target})=> setDate(target.value)}
         required

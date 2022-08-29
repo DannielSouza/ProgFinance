@@ -28,6 +28,12 @@
   animation: appear .3s forwards;
 }
 
+.date{
+  position: relative;
+}
+
+
+
 .dateContainer{
   display: flex;
 }
@@ -139,6 +145,11 @@
 @media (max-width: 800px){
   .container{
     width: 70%;
+  }
+  .date::after{
+    position: absolute;
+    content: 'Ex:07/05/2022';
+    color: rgba(0, 0, 0, .8);
   }
 }
 

@@ -106,8 +106,6 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
         }
 
 
-        <div className={style.dateContainer}>
-
         <input
         className={style.date}
         id={style.date}
@@ -117,7 +115,7 @@ const InputField = ({tasks, setTasks, setIsModalOpen}) => {
         required
         />
 
-        </div>
+        
 
         <button className={style.button}>Enviar</button>
       </form>    

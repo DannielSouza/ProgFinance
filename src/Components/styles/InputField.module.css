@@ -64,8 +64,8 @@
 .input,
 .select,
 .button,
-.dateContainer,
-.selectOut{
+.selectOut,
+.date{
   width: 20rem;  
   height: 2rem;
   padding: 0 .5rem;
@@ -75,19 +75,8 @@
   border: 2px solid white;
 }
 
-.dateContainer{
-  border: none;
-}
-
 .date{
   position: relative;
-  outline: none;
-  width: 100%;
-  height: 2rem;
-  padding: 0 .5rem;
-  border-radius: 5rem;
-  border: 1px solid white;
-  margin: .1rem;
 }
 
 .select, .selectOut, .date{
@@ -112,8 +101,8 @@
 .input:focus,
 .select:focus,
 .button:focus,
-.dateContainer:focus,
-.selectOut:focus{
+.selectOut:focus,
+.date:focus{
   border: 2px solid #C39BD3;
 }
 
@@ -156,7 +145,7 @@
   .container{
     width: 75%;
   }
-  .input,.select, .button, .dateContainer, .selectOut{
+  .input,.select, .button, .selectOut, .date{
     width: 16rem;
   }
   .button{
@@ -168,7 +157,7 @@
   .container{
     width: 75%;
   }
-  .input,.select, .button, .dateContainer, .selectOut{
+  .input,.select, .button, .selectOut, .date{
     width: 15rem;
   }
   .button{

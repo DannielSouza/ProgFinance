@@ -1,5 +1,6 @@
 .container{
   animation: slideRight .4s forwards;
+  overflow-x: hidden;
 }
 
 @keyframes slideRight{
@@ -29,6 +30,7 @@
 }
 
 .graphContainer{
+  overflow-x: hidden;
   max-width:90vw;
   margin: 0 auto;
   display: flex;
@@ -39,6 +41,7 @@
 }
 
 .mainGraph{
+  overflow-x: hidden;
   width:450px;
   height:450px;
   display: block;
@@ -56,7 +59,7 @@
 
 .buttonHome{
   position: fixed;
-  right: 1rem;
+  right: 1.5rem;
   bottom: 1.5rem;
   background: #633974;
   border: none;
@@ -98,6 +101,7 @@
     width:500px;
     justify-content: center;
     align-items:center;
+    overflow-x: hidden;
   }
 }
 

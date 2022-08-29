@@ -32,8 +32,6 @@
   position: relative;
 }
 
-
-
 .dateContainer{
   display: flex;
 }
@@ -149,12 +147,11 @@
   .date::after{
     position: absolute;
     content: '';
-    right: .5rem;
+    right: .7rem;
     width: 17px;
     height: 17px;
     background: url('../../assets/calendar.png');
     background-size: cover;
-    color: rgba(0, 0, 0, .8);
   }
 }
 

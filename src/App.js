@@ -8,7 +8,7 @@ import Home from "./Components/Home";
 
 function App() {
   const [tasks, setTasks] = React.useState()
-  const [isModalOpen, setIsModalOpen] = React.useState(true)
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
   const [name, setName] = React.useState(null)
 
   React.useEffect(()=>{

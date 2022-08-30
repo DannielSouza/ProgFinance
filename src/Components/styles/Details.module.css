@@ -3,6 +3,10 @@
   overflow-x: hidden;
 }
 
+.graphItem{
+  position: relative;
+}
+
 @keyframes slideRight{
   from{
     transform: translateX(30px);
@@ -113,7 +117,9 @@
     width:500px;
     justify-content: center;
     align-items:center;
-    overflow-x: hidden;
+    overflow: hidden;
+    left: 30%;
+    transform: translateX(-50%);
   }
 }
 
@@ -131,7 +137,10 @@
   .graphItem{
     display:grid;
     margin: 0 auto;
-    width:500px;
+    position: relative;
+    left: 48%;
+    transform: translateX(-50%);
+    width:450px;
     justify-content: center;
     align-items:center;
   }

@@ -12,7 +12,7 @@ const Home = ({tasks, setTasks, isModalOpen, setIsModalOpen}) => {
       <button onClick={()=> setIsModalOpen(true) } className='buttonAdd'><img src={add} alt='adcionar item'/></button>
       <Link to='detalhes' className='buttonGraph'><img src={graph} alt='graficos de detalhamentos'/></Link>
 
-        <ul>
+        <ul className='homeList'>
           {tasks && tasks.sort((a,b)=>{
             return  Number(b.timeStamp) - Number(a.timeStamp)
           }).map((task)=>{

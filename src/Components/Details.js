@@ -6,6 +6,7 @@ import style from './styles/Details.module.css'
 import home from '../assets/home.png'
 import { Link } from 'react-router-dom';
 import LineGraphOut from './Graphics/LineGraphOut.js'
+import Loading from './Loading.js'
 
 const Details = ({tasks}) => {
   const [select, setSelect] = React.useState('geral')
@@ -63,7 +64,7 @@ const Details = ({tasks}) => {
 
     </>
   )
-  return <div>Carregando...</div>
+  return <Loading />
 }
 
 export default Details

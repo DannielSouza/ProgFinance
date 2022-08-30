@@ -34,7 +34,7 @@ const Item = ({task , tasks, setTasks}) => {
     <li className={style.container}>
       <div className={style.mainInfo}>
         <p id={style.date}>{date}</p>
-        <p>{desc}</p>
+        <p id={style.desc}>{desc}</p>
       </div>
 
       <div className={style.value}>

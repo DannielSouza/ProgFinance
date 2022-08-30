@@ -48,10 +48,16 @@
   .container{
     width: 25rem
   }
+  #desc{
+    font-size: .9rem;
+  }
 }
 
 @media (max-width:450px){
   .container{
     width: 20rem
+  }
+  #desc{
+    font-size: .85rem;
   }
 }
